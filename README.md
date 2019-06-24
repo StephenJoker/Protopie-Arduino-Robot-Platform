@@ -2,6 +2,8 @@
 ## 一、平台简介
 以往在制作智能产品原型时往往只能通过 Arduino 实现简单的功能，或通过较为复杂笨重的方式连接 Processing 实现带有 GUI 等的智能产品原型。我在进行智能产品设计的时候探索了一种新的解决方案，用于快速链接GUI设计与智能产品的人机交互，更为快速的实现智能产品高保真原型，及硬件与App联动等等功能。
 借助 交互设计常用的 Sketch （ Adobe XD ）——  Protopie 数字原型工作流的高级功能 Android Broadcast 实现与 Arduino 联动。这套方案几乎能够完美代替传统的 Processing —— Arduino 智能产品原型方案，同时实现降低代码工作量和封装设备实现无需连接电脑演示。
+![workingdemo](https://github.com/StephenJoker/Protopie-Arduino-Robot-Platform/blob/master/Screenshots/workingdemo.gif)
+
 ## 二、原理解释
 ProtoPie Studio ( 制作原型部分 ) 中有一个“发送”反应模块，和“接收”触发模块。在这两个动作的 属性中有一个叫“Android Broadcast channel”的属性。利用Android broadcast可以帮助安装在同 一设备中的ProtoPie Player(演示原型部分)和App通讯。 
 “接收”可以帮助ProtoPie接收外部信号(非ProtoPie发送的信号)，并指导ProtoPie做出相应反 馈。例如，某设备和安卓连接后，从该设备发出的信号;亦或者从服务器发出的事件(Event)信 号，ProtoPie在接收到这些信号后就会作出既定的交互反应。 
@@ -242,7 +244,8 @@ void loop() {
 ##### Protopie 端的基本逻辑
 用户点击台灯时，判断台灯对应的 lamp 函数数值是否为 0 （ lamp=0 代表当前设备不在执行操作 ）随后依次发送 升起、旋转到台灯、旋转归位、下降四步骤的的指令给 Arduino。这里如果单纯执行可以直接发送给 Arduino，在我的样例中则是首先定义了四个对应的变量（ up、lamp、reset、down），并重复引用使其可以在实现发送信号的同时完成屏幕上的状态反馈。
 #### 建议的拼装结构（2mm亚克力激光切割）
-[点击下载拼装结构图纸]()
+[点击下载拼装结构图纸](https://github.com/StephenJoker/Protopie-Arduino-Robot-Platform/blob/master/PlatformDemoFiles/protopie-arduino-2mm.dxf)
+![拼装成品图](https://github.com/StephenJoker/Protopie-Arduino-Robot-Platform/blob/master/Screenshots/look.png)
 ## 五、平台部署指南
 1. 为安卓设备安装 Protopie Player [点击跳转下载地址](http://r.protopie.io/player-android-latest-link/) 
 2. 为安卓设备安装 BridgeApp [点击下载](https://github.com/StephenJoker/Protopie-Arduino-Robot-Platform/blob/master/Resource/io.protopie.protopiearduinobridge.apk) 
